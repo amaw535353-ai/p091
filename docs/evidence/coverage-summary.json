@@ -1,0 +1,13 @@
+{
+  "engagement": "P-091",
+  "denominator": 221,
+  "totals": {
+    "PASS": 202,
+    "FAIL": 0,
+    "INCONCLUSIVE": 3,
+    "NOT_TESTED": 13,
+    "NOT_APPLICABLE": 3
+  },
+  "meaning": "Coverage observations; PASS is an assertion outcome, not a count of vulnerabilities",
+  "source": "docs/requirements/control-and-test-traceability.csv"
+}

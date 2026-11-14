@@ -1,0 +1,8 @@
+{
+  "executed_utc": "2026-11-14T20:32:42.274877+00:00",
+  "mode": "actual offline Uvicorn on127.0.0.1:8000 with persistent SQLite",
+  "observation": "ready200/login200/chat200/citation200/other-tenant404/logout200/token-reuse401",
+  "secrets_retained": false,
+  "counting": "supplemental smoke; not added to221-row denominator",
+  "server": "left running for local review"
+}

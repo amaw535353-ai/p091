@@ -1,0 +1,492 @@
+{
+  "realm": "p091",
+  "enabled": true,
+  "displayName": "P-091 Synthetic Security Lab",
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": false,
+  "editUsernameAllowed": false,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 900,
+  "bruteForceProtected": true,
+  "loginWithEmailAllowed": false,
+  "duplicateEmailsAllowed": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "read"
+      },
+      {
+        "name": "admin"
+      },
+      {
+        "name": "ingest"
+      }
+    ]
+  },
+  "clientScopes": [
+    {
+      "name": "read",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true"
+      }
+    },
+    {
+      "name": "admin",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true"
+      }
+    },
+    {
+      "name": "ingest",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true"
+      }
+    }
+  ],
+  "scopeMappings": [
+    {
+      "clientScope": "read",
+      "roles": [
+        "read"
+      ]
+    },
+    {
+      "clientScope": "admin",
+      "roles": [
+        "admin"
+      ]
+    },
+    {
+      "clientScope": "ingest",
+      "roles": [
+        "ingest"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "p091-web",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": false,
+      "redirectUris": [
+        "http://localhost:8000/",
+        "http://127.0.0.1:8000/"
+      ],
+      "webOrigins": [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:8000/"
+      },
+      "defaultClientScopes": [
+        "read"
+      ],
+      "optionalClientScopes": [
+        "admin"
+      ],
+      "protocolMappers": [
+        {
+          "name": "subject",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.custom.audience": "p091-api",
+            "access.token.claim": "true",
+            "id.token.claim": "false"
+          }
+        },
+        {
+          "name": "tenant",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "tenant",
+            "claim.name": "tenant",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        },
+        {
+          "name": "actor_type",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "actor_type",
+            "claim.name": "actor_type",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "indexer",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "${INDEXER_CLIENT_SECRET}",
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": false,
+      "defaultClientScopes": [
+        "ingest"
+      ],
+      "optionalClientScopes": [],
+      "protocolMappers": [
+        {
+          "name": "subject",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.custom.audience": "p091-api",
+            "access.token.claim": "true",
+            "id.token.claim": "false"
+          }
+        },
+        {
+          "name": "tenant",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "tenant",
+            "claim.name": "tenant",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        },
+        {
+          "name": "actor_type",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "actor_type",
+            "claim.name": "actor_type",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "contoso-indexer",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "${CONTOSO_INDEXER_CLIENT_SECRET}",
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": false,
+      "defaultClientScopes": [
+        "ingest"
+      ],
+      "optionalClientScopes": [],
+      "protocolMappers": [
+        {
+          "name": "subject",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.custom.audience": "p091-api",
+            "access.token.claim": "true",
+            "id.token.claim": "false"
+          }
+        },
+        {
+          "name": "tenant",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "tenant",
+            "claim.name": "tenant",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        },
+        {
+          "name": "actor_type",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "actor_type",
+            "claim.name": "actor_type",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "nw-employee",
+      "username": "nw-employee",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Synthetic",
+      "lastName": "Employee",
+      "email": "nw-employee@northwind.example.invalid",
+      "attributes": {
+        "tenant": [
+          "northwind"
+        ],
+        "actor_type": [
+          "human"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${LAB_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "read"
+      ],
+      "requiredActions": []
+    },
+    {
+      "id": "nw-manager",
+      "username": "nw-manager",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Synthetic",
+      "lastName": "Manager",
+      "email": "nw-manager@northwind.example.invalid",
+      "attributes": {
+        "tenant": [
+          "northwind"
+        ],
+        "actor_type": [
+          "human"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${LAB_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "read"
+      ],
+      "requiredActions": []
+    },
+    {
+      "id": "nw-admin",
+      "username": "nw-admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Synthetic",
+      "lastName": "Admin",
+      "email": "nw-admin@northwind.example.invalid",
+      "attributes": {
+        "tenant": [
+          "northwind"
+        ],
+        "actor_type": [
+          "human"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${LAB_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "read",
+        "admin"
+      ],
+      "requiredActions": []
+    },
+    {
+      "id": "co-employee",
+      "username": "co-employee",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Synthetic",
+      "lastName": "Employee",
+      "email": "co-employee@contoso.example.invalid",
+      "attributes": {
+        "tenant": [
+          "contoso"
+        ],
+        "actor_type": [
+          "human"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${LAB_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "read"
+      ],
+      "requiredActions": []
+    },
+    {
+      "id": "co-manager",
+      "username": "co-manager",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Synthetic",
+      "lastName": "Manager",
+      "email": "co-manager@contoso.example.invalid",
+      "attributes": {
+        "tenant": [
+          "contoso"
+        ],
+        "actor_type": [
+          "human"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${LAB_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "read"
+      ],
+      "requiredActions": []
+    },
+    {
+      "id": "co-admin",
+      "username": "co-admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Synthetic",
+      "lastName": "Admin",
+      "email": "co-admin@contoso.example.invalid",
+      "attributes": {
+        "tenant": [
+          "contoso"
+        ],
+        "actor_type": [
+          "human"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${LAB_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "read",
+        "admin"
+      ],
+      "requiredActions": []
+    },
+    {
+      "id": "nw-indexer",
+      "username": "service-account-indexer",
+      "enabled": true,
+      "serviceAccountClientId": "indexer",
+      "attributes": {
+        "tenant": [
+          "northwind"
+        ],
+        "actor_type": [
+          "service"
+        ]
+      },
+      "realmRoles": [
+        "ingest"
+      ]
+    },
+    {
+      "id": "co-indexer",
+      "username": "service-account-contoso-indexer",
+      "enabled": true,
+      "serviceAccountClientId": "contoso-indexer",
+      "attributes": {
+        "tenant": [
+          "contoso"
+        ],
+        "actor_type": [
+          "service"
+        ]
+      },
+      "realmRoles": [
+        "ingest"
+      ]
+    }
+  ]
+}

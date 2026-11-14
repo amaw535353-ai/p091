@@ -1,0 +1,73 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-UI-20261114T202154Z",
+  "started_utc": "2026-11-14T20:21:54.344566+00:00",
+  "finished_utc": "2026-11-14T20:21:59.510811+00:00",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "apps/web/check_browser.py",
+    "--api-python",
+    "/workspace/work/p091/.venv/bin/python",
+    "--chromium",
+    "/usr/bin/chromium"
+  ],
+  "browser": "Chromium",
+  "browser_version": "156.0.8078.79",
+  "mode": "offline synthetic",
+  "checks": [
+    {
+      "test_id": "UI-001",
+      "description": "UI-001 offline synthetic mode is visibly labeled",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-002",
+      "description": "UI-002 employee sees permitted sources without Finance or other-tenant titles",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-003",
+      "description": "UI-003 permitted answer has an independently opened source citation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-004",
+      "description": "UI-004 untrusted title/body markup remains literal text and executes no handler",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-005",
+      "description": "UI-005 logout removes bearer state and rendered source/answer/preview text",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-006",
+      "description": "UI-006 changing to second tenant loads that tenant's permitted answer",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-007",
+      "description": "UI-007 offline bearer credentials are absent from localStorage/sessionStorage",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-008",
+      "description": "UI-008 mobile layout has no horizontal overflow at 390 pixels",
+      "status": "PASS"
+    },
+    {
+      "test_id": "UI-009",
+      "description": "UI-009 Chromium emitted no uncaught page errors",
+      "status": "PASS"
+    }
+  ],
+  "denominator": 9,
+  "PASS": 9,
+  "FAIL": 0,
+  "uncaught_page_errors": [],
+  "screenshots_sha256": {
+    "offline.png": "eb496d5f6597c45a6b3f86464018b4e84f37edd21aa2c85475dbd845099c7045",
+    "mobile.png": "8a378cc4232152ccb99acbb454b411944efb37114785013fd7ec83a210ce54e9"
+  },
+  "scope": "Offline browser workflows only. Keycloak PKCE and live service UI paths are not exercised here."
+}

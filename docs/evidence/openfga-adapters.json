@@ -1,0 +1,147 @@
+{
+  "evidence_id": "E-OPENFGA-APP-ADAPTERS",
+  "executed_at_utc": "2026-11-14T20:25:09.660422+00:00",
+  "command": ".venv/bin/python infra/probe_openfga_adapters.py",
+  "classification": "measured standalone real OpenFGA service; application HTTP adapters",
+  "image": "openfga/openfga:v1.22.1",
+  "endpoint": "http://127.0.0.1:8793",
+  "datastore": "disposable in-memory",
+  "checks": [
+    {
+      "test_id": "FGA-ADAPTER-001",
+      "name": "Preshared authentication rejects unauthenticated mutation",
+      "expected": 401,
+      "observed": 401,
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-002",
+      "name": "Absent relationship denies current adapter check",
+      "expected": false,
+      "observed": false,
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-003",
+      "name": "Adapter write grants exactly intended principal",
+      "expected": {
+        "employee": true,
+        "manager": false
+      },
+      "observed": {
+        "employee": true,
+        "manager": false
+      },
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-004",
+      "name": "Adapter exact tuple read sees persisted direct grant",
+      "expected": [
+        "user:nw-employee"
+      ],
+      "observed": [
+        "user:nw-employee"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-005",
+      "name": "Direct reconciliation removes old grant and adds current grant",
+      "expected": {
+        "employee": false,
+        "manager": true,
+        "direct_viewers": [
+          "user:nw-manager"
+        ]
+      },
+      "observed": {
+        "employee": false,
+        "manager": true,
+        "direct_viewers": [
+          "user:nw-manager"
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-006",
+      "name": "Exact tuple read excludes inherited users; group removal revokes inheritance",
+      "expected": {
+        "inherited_employee_allowed": true,
+        "direct_viewers": [
+          "user:nw-manager"
+        ],
+        "employee_after_group_removal": false
+      },
+      "observed": {
+        "inherited_employee_allowed": true,
+        "direct_viewers": [
+          "user:nw-manager"
+        ],
+        "employee_after_group_removal": false
+      },
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-007",
+      "name": "Removing direct viewer immediately denies and empties read set",
+      "expected": {
+        "manager": false,
+        "direct_viewers": []
+      },
+      "observed": {
+        "manager": false,
+        "direct_viewers": []
+      },
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-008",
+      "name": "Invalid service credential causes sanitized fail-closed adapter error",
+      "expected": 503,
+      "observed": 503,
+      "status": "PASS"
+    },
+    {
+      "test_id": "FGA-ADAPTER-009",
+      "name": "Real service outage denies check and fails health",
+      "expected": {
+        "status": 503,
+        "health": false
+      },
+      "observed": {
+        "status": 503,
+        "health": false
+      },
+      "status": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "infra/probe_openfga_adapters.py": "94dc7d1c25407b0be9788638aa492d5317f05273a240016fe3e4e7e7af135b5f",
+    "p091/adapters.py": "d023104e0a035fd77c0f9353078813fd05b23530cb326e9b249ed01783a77456",
+    "p091/config.py": "f809455f679d4cdce13a4b7d8c0219f2bdd2f90ab239fe549c22102e4eb9512f",
+    "infra/openfga/model.json": "7101faf54f55857261ba60e3dbd50852c3d90e6d760a32518a926178e56ca14d"
+  },
+  "limitations": [
+    "Standalone OpenFGA memory datastore only; PostgreSQL/Compose stack was not exercised.",
+    "Synthetic tuple users/resources only; no human Keycloak identity flow in this probe.",
+    "No Nextcloud source permissions, Qdrant retrieval, or complete app endpoint path tested.",
+    "Group usersets are deliberately omitted by exact direct-tuple reconciliation reads."
+  ],
+  "credentials_retained": false,
+  "container_removed": true,
+  "image_id": "sha256:f6857f0216b32f6128629a0046eb86369d94dd800a0a6499488efbb3361e4ca6",
+  "image_repository_digests": [
+    "openfga/openfga@sha256:b852071314f1fda1194d341a6ebac0a4f619b3cd87a6626d2ccc7048af4ec671"
+  ],
+  "model_accepted": true,
+  "finished_at_utc": "2026-11-14T20:25:12.139631+00:00",
+  "totals": {
+    "PASS": 9,
+    "FAIL": 0,
+    "INCONCLUSIVE": 0,
+    "NOT_TESTED": 0,
+    "NOT_APPLICABLE": 0
+  }
+}

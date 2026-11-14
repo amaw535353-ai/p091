@@ -1,0 +1,47 @@
+{
+  "evidence_id": "E-F003-AUTH-REVOCATION",
+  "finding_id": "F-003",
+  "before": {
+    "finding_id": "F-003",
+    "phase": "before",
+    "observed_at_utc": "2026-11-14T20:20:09.744135+00:00",
+    "auth_sha256": "ba5917ce4f33a087b11dfacbc214725d91b756a0b16002af3b1ab4e3f32d6eb8",
+    "observations": {
+      "original_before_logout": 200,
+      "logout": 200,
+      "original_after_logout": 401,
+      "padded_after_logout": 200
+    },
+    "secrets_retained": false
+  },
+  "after": {
+    "finding_id": "F-003",
+    "phase": "after",
+    "observed_at_utc": "2026-11-14T20:21:35.407971+00:00",
+    "auth_sha256": "2e249974a46095ec1410bb2ac69cbb06725bc06dbfb54313d66a106b953c1df6",
+    "observations": {
+      "original_before_logout": 200,
+      "logout": 200,
+      "identity_variants_after_logout": {
+        "original": 401,
+        "one_padding": 401,
+        "two_padding": 401,
+        "three_padding": 401
+      }
+    },
+    "secrets_retained": false
+  },
+  "regression_test_ids": [
+    "AUTH-LOGOUT-001",
+    "AUTH-LOGOUT-002",
+    "AUTH-LOGOUT-003",
+    "AUTH-LOGOUT-004"
+  ],
+  "command": ".venv/bin/python -m pytest tests/unit/test_auth_revocation.py tests/unit/test_adapters.py -q",
+  "observed_test_summary": "55 passed, 1 Starlette deprecation warning",
+  "notes": [
+    "Only synthetic identities used. No bearer tokens retained.",
+    "Live-JWKS regression uses MockTransport and is not a real Keycloak integration result.",
+    "Revocation remains process-local and does not survive live-mode restarts."
+  ]
+}

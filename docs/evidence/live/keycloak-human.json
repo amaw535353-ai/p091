@@ -1,0 +1,106 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-KEYCLOAK-HUMAN-20261114T202556Z",
+  "started_utc": "2026-11-14T20:25:56.261981+00:00",
+  "finished_utc": "2026-11-14T20:26:04.315032+00:00",
+  "command": "python apps/web/check_keycloak.py",
+  "target": "http://localhost:8081/realms/p091",
+  "browser_version": "156.0.8078.79",
+  "denominator": 8,
+  "PASS": 8,
+  "FAIL": 0,
+  "observations": [
+    {
+      "test_id": "KC-HUMAN-NW-EMPLOYEE",
+      "status": "PASS",
+      "synthetic_subject": "nw-employee",
+      "tenant": "northwind",
+      "actor_type": "human",
+      "effective_scopes": [
+        "openid",
+        "read"
+      ],
+      "state_verified": true,
+      "pkce_s256_exchange": true,
+      "browser_origin_cors_verified": true,
+      "signature_issuer_audience_expiry_verified": true,
+      "admin_scope_matches_role": true
+    },
+    {
+      "test_id": "KC-LOGOUT-NW-EMPLOYEE",
+      "status": "PASS",
+      "synthetic_subject": "nw-employee",
+      "local_process_revocation_rejected": true
+    },
+    {
+      "test_id": "KC-HUMAN-NW-ADMIN",
+      "status": "PASS",
+      "synthetic_subject": "nw-admin",
+      "tenant": "northwind",
+      "actor_type": "human",
+      "effective_scopes": [
+        "admin",
+        "openid",
+        "read"
+      ],
+      "state_verified": true,
+      "pkce_s256_exchange": true,
+      "browser_origin_cors_verified": true,
+      "signature_issuer_audience_expiry_verified": true,
+      "admin_scope_matches_role": true
+    },
+    {
+      "test_id": "KC-LOGOUT-NW-ADMIN",
+      "status": "PASS",
+      "synthetic_subject": "nw-admin",
+      "local_process_revocation_rejected": true
+    },
+    {
+      "test_id": "KC-HUMAN-CO-EMPLOYEE",
+      "status": "PASS",
+      "synthetic_subject": "co-employee",
+      "tenant": "contoso",
+      "actor_type": "human",
+      "effective_scopes": [
+        "openid",
+        "read"
+      ],
+      "state_verified": true,
+      "pkce_s256_exchange": true,
+      "browser_origin_cors_verified": true,
+      "signature_issuer_audience_expiry_verified": true,
+      "admin_scope_matches_role": true
+    },
+    {
+      "test_id": "KC-LOGOUT-CO-EMPLOYEE",
+      "status": "PASS",
+      "synthetic_subject": "co-employee",
+      "local_process_revocation_rejected": true
+    },
+    {
+      "test_id": "KC-HUMAN-CO-ADMIN",
+      "status": "PASS",
+      "synthetic_subject": "co-admin",
+      "tenant": "contoso",
+      "actor_type": "human",
+      "effective_scopes": [
+        "admin",
+        "openid",
+        "read"
+      ],
+      "state_verified": true,
+      "pkce_s256_exchange": true,
+      "browser_origin_cors_verified": true,
+      "signature_issuer_audience_expiry_verified": true,
+      "admin_scope_matches_role": true
+    },
+    {
+      "test_id": "KC-LOGOUT-CO-ADMIN",
+      "status": "PASS",
+      "synthetic_subject": "co-admin",
+      "local_process_revocation_rejected": true
+    }
+  ],
+  "secrets_or_tokens_retained": false,
+  "limitation": "Real Keycloak human browser PKCE/CORS + app JWT verifier and per-process revocation tested. A minimal real loopback callback listener uses the registered URI; PostgreSQL/FastAPI live app and provider session revocation not tested by this script."
+}

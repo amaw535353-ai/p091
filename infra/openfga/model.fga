@@ -1,0 +1,24 @@
+model
+  schema 1.1
+
+type user
+
+type tenant
+  relations
+    define member: [user]
+    define administrator: [user]
+
+type department
+  relations
+    define member: [user, group#member]
+    define tenant: [tenant]
+
+type group
+  relations
+    define member: [user]
+    define tenant: [tenant]
+
+type document
+  relations
+    define viewer: [user, group#member, department#member, tenant#member]
+    define tenant: [tenant]

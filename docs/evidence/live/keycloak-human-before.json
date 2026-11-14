@@ -1,0 +1,16 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-KEYCLOAK-HUMAN-BEFORE",
+  "command": "python apps/web/check_keycloak.py",
+  "synthetic_subject": "nw-employee",
+  "mode": "real Keycloak browser authorization-code S256 PKCE plus app Authenticator",
+  "observed": {
+    "browser_login": "completed",
+    "authorization_code_exchange": "HTTP 200",
+    "app_jwt_verifier": "HTTP 401; Invalid credentials",
+    "underlying_verified_failure": "MissingRequiredClaimError: Token is missing the sub claim"
+  },
+  "interpretation": "Confirmed integration configuration defect, not an authorization bypass. The verifier failed closed as required. The client omitted the Keycloak basic/subject mapper needed for user access-token sub.",
+  "status": "FAIL",
+  "secrets_or_tokens_retained": false
+}

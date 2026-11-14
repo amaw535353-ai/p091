@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.1",
+  "type_definitions": [
+    {"type": "user"},
+    {
+      "type": "tenant",
+      "relations": {"member": {"this": {}}, "administrator": {"this": {}}},
+      "metadata": {"relations": {
+        "member": {"directly_related_user_types": [{"type": "user"}]},
+        "administrator": {"directly_related_user_types": [{"type": "user"}]}
+      }}
+    },
+    {
+      "type": "department",
+      "relations": {"member": {"this": {}}, "tenant": {"this": {}}},
+      "metadata": {"relations": {
+        "member": {"directly_related_user_types": [{"type": "user"}, {"type": "group", "relation": "member"}]},
+        "tenant": {"directly_related_user_types": [{"type": "tenant"}]}
+      }}
+    },
+    {
+      "type": "group",
+      "relations": {"member": {"this": {}}, "tenant": {"this": {}}},
+      "metadata": {"relations": {
+        "member": {"directly_related_user_types": [{"type": "user"}]},
+        "tenant": {"directly_related_user_types": [{"type": "tenant"}]}
+      }}
+    },
+    {
+      "type": "document",
+      "relations": {
+        "viewer": {"this": {}},
+        "tenant": {"this": {}}
+      },
+      "metadata": {"relations": {
+        "viewer": {"directly_related_user_types": [
+          {"type": "user"}, {"type": "group", "relation": "member"},
+          {"type": "department", "relation": "member"}, {"type": "tenant", "relation": "member"}
+        ]},
+        "tenant": {"directly_related_user_types": [{"type": "tenant"}]}
+      }}
+    }
+  ]
+}

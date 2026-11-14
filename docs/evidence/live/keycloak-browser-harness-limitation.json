@@ -1,0 +1,9 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-KEYCLOAK-CALLBACK-HARNESS",
+  "status": "INCONCLUSIVE",
+  "attempt": "Real Keycloak human browser login followed by browser fetch token exchange from a Playwright-intercepted synthetic localhost callback document",
+  "observed": "Chromium blocked fetch from http://localhost:8000 to http://localhost:8081: Permission was denied for this request to access the loopback address space.",
+  "interpretation": "Browser test harness origin classification, not a demonstrated application CORS flaw. The replacement harness uses a real loopback HTTP callback listener. The infrastructure agent independently observed server Access-Control-Allow-Origin:http://localhost:8000 on an invalid-code HTTP400 response.",
+  "secrets_or_tokens_retained": false
+}

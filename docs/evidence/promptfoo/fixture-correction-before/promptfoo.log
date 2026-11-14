@@ -1,0 +1,17 @@
+Cache is disabled.
+Starting evaluation eval-VZG-2026-11-14T20:12:49
+Running 6 test cases (up to 1 at a time)...
+✓ Eval complete (ID: eval-VZG-2026-11-14T20:12:49)
+
+» View results: promptfoo view
+» Share with your team: https://promptfoo.app
+» Feedback: https://promptfoo.dev/feedback
+
+
+Results:
+  ✓ 5 passed (83.33%)
+  ✗ 1 failed (16.67%)
+  0 errors (0%)
+Duration: 2s (concurrency: 1)
+
+Writing output to /workspace/work/p091/docs/evidence/promptfoo/results.json

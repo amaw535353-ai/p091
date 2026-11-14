@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>P-091 · Knowledge security lab</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="masthead">
+    <a href="/" class="brand"><span class="brand-mark" aria-hidden="true">P</span><span>P-091 <span class="brand-detail">Enterprise knowledge lab</span></span></a>
+    <span id="mode-badge" class="badge">LOCAL · SYNTHETIC DATA</span>
+  </header>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Lab session">
+      <div class="eyebrow">ASSESSMENT WORKSPACE</div>
+      <h1>Knowledge,<br> with boundaries.</h1>
+      <p class="intro">Explore permission-aware retrieval and inspect the evidence behind every answer.</p>
+      <section class="session-card" aria-labelledby="session-title">
+        <h2 id="session-title">Your session</h2>
+        <form id="login-form">
+          <label for="user-select">Synthetic identity</label>
+          <select id="user-select" name="user_id">
+            <optgroup label="Northwind">
+              <option value="nw-employee">Employee · HR</option>
+              <option value="nw-manager">Manager · Finance</option>
+              <option value="nw-admin">Tenant administrator</option>
+            </optgroup>
+            <optgroup label="Contoso">
+              <option value="co-employee">Employee · HR</option>
+              <option value="co-manager">Manager · Finance</option>
+              <option value="co-admin">Tenant administrator</option>
+            </optgroup>
+          </select>
+          <button class="button primary" type="submit" id="login-button">Enter synthetic lab</button>
+        </form>
+        <dl id="identity" hidden></dl>
+        <button id="logout-button" class="button secondary" hidden>Sign out</button>
+      </section>
+      <div class="boundary-note"><span class="status-dot" aria-hidden="true"></span><div><strong>Authorization before disclosure</strong><p>Documents, answers, and saved citations are checked against current access.</p></div></div>
+      <p class="sidebar-foot">Fictional tenants. Harmless canaries.<br>Local assessment only.</p>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <div class="page-heading"><div><div class="eyebrow">REFERENCE ASSISTANT</div><h2>Ask with confidence.</h2></div><span id="session-state" class="session-state">No active session</span></div>
+      <p id="status" role="status" aria-live="polite">Choose a synthetic identity to begin.</p>
+      <section class="ask-panel" aria-labelledby="ask-title">
+        <div class="panel-heading"><h3 id="ask-title">Ask your knowledge base</h3><span class="quiet-pill">DETERMINISTIC · EXTRACTIVE</span></div>
+        <form id="ask-form">
+          <label for="question">Question</label>
+          <textarea id="question" rows="3" maxlength="1000" placeholder="What does the HR handbook say?" required></textarea>
+          <div class="ask-footer"><p>Answers include source quotes you can verify.</p><button type="submit" class="button primary" id="ask-button" disabled>Ask assistant <span aria-hidden="true">&gt;</span></button></div>
+        </form>
+        <div id="answer" hidden class="answer-box" aria-live="polite"><div class="eyebrow">GROUNDED RESPONSE</div><p id="answer-text"></p><div id="citations"></div></div>
+      </section>
+      <div class="content-grid">
+        <section class="document-panel" aria-labelledby="documents-title">
+          <div class="panel-heading"><h3 id="documents-title">Available documents</h3><span id="document-count" class="count">0</span></div>
+          <form id="search-form" class="search-form"><label class="sr-only" for="search">Search documents</label><input id="search" type="search" maxlength="500" placeholder="Search accessible documents"><button class="button secondary" type="submit" id="search-button" disabled>Search</button></form>
+          <div id="documents" class="document-list"><p class="empty-state">Your permitted sources will appear here.</p></div>
+          <div id="preview" hidden class="preview-box"><h4 id="preview-title"></h4><pre id="preview-body"></pre><button class="button secondary" id="close-preview">Close preview</button></div>
+        </section>
+        <section class="activity-panel" aria-labelledby="activity-title"><div class="panel-heading"><h3 id="activity-title">Lab activity</h3><button id="refresh-button" class="text-button" disabled>Refresh</button></div><dl id="metrics"><dt>Sync and policy state</dt><dd>Sign in to inspect</dd></dl><h4>Recent questions</h4><div id="history"><p class="empty-state">No history loaded.</p></div><p class="small-note">History and citations are rechecked when opened. Revoked sources can make a previous response unavailable.</p></section>
+      </div>
+      <section id="admin-panel" class="admin-panel" hidden aria-labelledby="admin-title"><div class="panel-heading"><h3 id="admin-title">Synthetic administration</h3><span class="quiet-pill">TENANT SCOPED</span></div><form id="admin-form"><div class="admin-fields"><div><label for="admin-document">Document ID</label><input id="admin-document" required placeholder="Select a document above"></div><div><label for="admin-user">User ID for sharing</label><input id="admin-user" placeholder="nw-employee"></div><div><label for="admin-action">Action</label><select id="admin-action"><option value="share">Share with user</option><option value="unshare">Remove individual share</option><option value="reindex">Reindex document</option><option value="delete">Delete document</option></select></div></div><button type="submit" class="button secondary">Apply lab action</button></form></section>
+      <footer class="workspace-footer"><span>P-091 · Authorized security assessment</span><span>Offline extraction does not measure LLM jailbreak resistance.</span></footer>
+    </main>
+  </div>
+</body>
+</html>

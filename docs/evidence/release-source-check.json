@@ -1,0 +1,15 @@
+{
+  "core_application_and_test_source_matches_pytest_snapshot": true,
+  "core_files_compared": 17,
+  "browser_source_matches_race_retest": true,
+  "other_changed_files_since_pytest": [
+    "apps/web/README.md",
+    "apps/web/check_keycloak.py",
+    "apps/web/check_session_race.py",
+    "infra/README.md",
+    "scripts/build_traceability.py",
+    "scripts/reset_offline.py",
+    "Makefile"
+  ],
+  "note": "Operator/reset/report harness files can differ from pytest snapshot; clean-offline and actual Uvicorn smoke separately executed. Full delivery archive has independent source hashes."
+}

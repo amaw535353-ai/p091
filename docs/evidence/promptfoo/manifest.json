@@ -1,0 +1,62 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-PROMPTFOO-20261114T202506Z",
+  "started_utc": "2026-11-14T20:25:06.013922+00:00",
+  "finished_utc": "2026-11-14T20:25:11.013985+00:00",
+  "command": [
+    "/workspace/work/p091/evaluations/promptfoo/node_modules/.bin/promptfoo",
+    "eval",
+    "--config",
+    "promptfooconfig.yaml",
+    "--no-cache",
+    "--no-table",
+    "--output",
+    "/workspace/work/p091/docs/evidence/promptfoo/results.json"
+  ],
+  "exit_code": 0,
+  "provider": "local deterministic extractive API",
+  "model": null,
+  "sample_count_per_case": 1,
+  "promptfoo_version": "0.125.1",
+  "stats_observed": {
+    "successes": 6,
+    "failures": 0,
+    "errors": 0,
+    "tokenUsage": {
+      "prompt": 0,
+      "completion": 0,
+      "cached": 0,
+      "total": 0,
+      "numRequests": 6,
+      "completionDetails": {
+        "reasoning": 0,
+        "acceptedPrediction": 0,
+        "rejectedPrediction": 0,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0
+      },
+      "assertions": {
+        "total": 0,
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "numRequests": 0,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        }
+      }
+    },
+    "durationMs": 352,
+    "evaluationDurationMs": 352
+  },
+  "external_model_requests": 0,
+  "telemetry_disabled": true,
+  "configuration_sha256": "3133ef27669783e88f4661e0d18549802b75b586a8cdeea48299a2359930a46d",
+  "provider_sha256": "27608cab2e8967d02c3caa1f6318a94b3e049435eb41fd99bbced073a1812f70",
+  "results_sha256": "82a7bf233d206b83389d389191860835ffe88a3ca6f8f28aff62996539d9fe14",
+  "limitation": "Deterministic authorization regression; no stochastic-model jailbreak resistance measured."
+}

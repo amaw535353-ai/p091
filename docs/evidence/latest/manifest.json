@@ -1,0 +1,1262 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-20261114T202305519415Z",
+  "started_utc": "2026-11-14T20:23:05.519415+00:00",
+  "finished_utc": "2026-11-14T20:23:22.084860+00:00",
+  "command": [
+    "/workspace/work/p091/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests",
+    "-q",
+    "--junitxml=<temporary>/junit.xml"
+  ],
+  "working_directory": "/workspace/work/p091",
+  "exit_code": 0,
+  "git_commit": null,
+  "git_note": "No Git commit available",
+  "configuration": {
+    "mode": "offline",
+    "data": "synthetic",
+    "external_llm": "disabled",
+    "live_integrations": "not exercised by this suite"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "fastapi": "0.141.1",
+    "pydantic": "2.14.3",
+    "PyJWT": "2.13.0",
+    "httpx": "0.28.1",
+    "cryptography": "50.0.2",
+    "pytest": "9.0.2",
+    "psycopg": "3.3.3",
+    "uvicorn": "0.52.1"
+  },
+  "denominator": 145,
+  "totals": {
+    "PASS": 145,
+    "FAIL": 0,
+    "INCONCLUSIVE": 0,
+    "NOT_TESTED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "test_records": [
+    {
+      "test_id": "TEST-09132c5a85",
+      "pytest_node_id": "tests.integration.test_seed_restart::test_group_revocation_survives_bootstrap[repeat-seed]",
+      "status": "PASS",
+      "duration_seconds": "0.200",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-96e3f747b4",
+      "pytest_node_id": "tests.integration.test_seed_restart::test_group_revocation_survives_bootstrap[restart]",
+      "status": "PASS",
+      "duration_seconds": "0.259",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8085428f03",
+      "pytest_node_id": "tests.integration.test_source_acl_state::test_content_reindex_preserves_independent_acl_state[False]",
+      "status": "PASS",
+      "duration_seconds": "0.169",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-0efe458433",
+      "pytest_node_id": "tests.integration.test_source_acl_state::test_content_reindex_preserves_independent_acl_state[True]",
+      "status": "PASS",
+      "duration_seconds": "0.304",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f51e8c5f78",
+      "pytest_node_id": "tests.integration.test_workflow::test_permitted_login_search_chat_and_citation[nw-employee-northwind]",
+      "status": "PASS",
+      "duration_seconds": "0.434",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-56dcd7b8c4",
+      "pytest_node_id": "tests.integration.test_workflow::test_permitted_login_search_chat_and_citation[nw-manager-northwind]",
+      "status": "PASS",
+      "duration_seconds": "0.371",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-a2d2da30c6",
+      "pytest_node_id": "tests.integration.test_workflow::test_permitted_login_search_chat_and_citation[co-employee-contoso]",
+      "status": "PASS",
+      "duration_seconds": "0.284",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-95394855ec",
+      "pytest_node_id": "tests.integration.test_workflow::test_permitted_login_search_chat_and_citation[co-manager-contoso]",
+      "status": "PASS",
+      "duration_seconds": "0.314",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-94cfd020c1",
+      "pytest_node_id": "tests.integration.test_workflow::test_share_unshare_invalidates_all_derivative_paths",
+      "status": "PASS",
+      "duration_seconds": "0.135",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f70eae1206",
+      "pytest_node_id": "tests.integration.test_workflow::test_edit_requires_reindex_and_invalidates_prior_citations",
+      "status": "PASS",
+      "duration_seconds": "0.147",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5c8c243d4a",
+      "pytest_node_id": "tests.integration.test_workflow::test_health_and_readiness_report_mode",
+      "status": "PASS",
+      "duration_seconds": "0.112",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-b161b1d62a",
+      "pytest_node_id": "tests.integration.test_workflow::test_no_retrieval_returns_grounded_empty_answer",
+      "status": "PASS",
+      "duration_seconds": "0.118",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-c6e0a0635e",
+      "pytest_node_id": "tests.integration.test_workflow::test_scoped_workload_can_reindex_own_tenant",
+      "status": "PASS",
+      "duration_seconds": "0.082",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-365ca3f7c2",
+      "pytest_node_id": "tests.integration.test_workflow::test_group_addition_grants_only_current_authorized_department",
+      "status": "PASS",
+      "duration_seconds": "0.116",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2c8c0f0b1e",
+      "pytest_node_id": "tests.integration.test_workflow::test_reindex_resolves_simulated_stale_source_window",
+      "status": "PASS",
+      "duration_seconds": "0.106",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-290931833b",
+      "pytest_node_id": "tests.security.test_boundaries::test_missing_credentials[/auth/me]",
+      "status": "PASS",
+      "duration_seconds": "0.102",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2b776d2fbc",
+      "pytest_node_id": "tests.security.test_boundaries::test_missing_credentials[/documents]",
+      "status": "PASS",
+      "duration_seconds": "0.293",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8815bd6e26",
+      "pytest_node_id": "tests.security.test_boundaries::test_missing_credentials[/history]",
+      "status": "PASS",
+      "duration_seconds": "0.131",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8fa7a60eac",
+      "pytest_node_id": "tests.security.test_boundaries::test_missing_credentials[/dashboard]",
+      "status": "PASS",
+      "duration_seconds": "0.115",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-80ccded581",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[expired]",
+      "status": "PASS",
+      "duration_seconds": "0.109",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-111053fe37",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[issuer]",
+      "status": "PASS",
+      "duration_seconds": "0.277",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-769b5b0d2a",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[audience]",
+      "status": "PASS",
+      "duration_seconds": "0.094",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-b2ec5882de",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[future-nbf]",
+      "status": "PASS",
+      "duration_seconds": "0.073",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-b1b9fbb4df",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[future-iat]",
+      "status": "PASS",
+      "duration_seconds": "0.089",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2f5d68866f",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[unknown-subject]",
+      "status": "PASS",
+      "duration_seconds": "0.118",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-e774a34f4b",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signed_claims[tenant-mismatch]",
+      "status": "PASS",
+      "duration_seconds": "0.094",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7b5a9ca6d2",
+      "pytest_node_id": "tests.security.test_boundaries::test_invalid_signature",
+      "status": "PASS",
+      "duration_seconds": "0.103",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6df56f672b",
+      "pytest_node_id": "tests.security.test_boundaries::test_read_scope_required[]",
+      "status": "PASS",
+      "duration_seconds": "0.060",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-895a3e4002",
+      "pytest_node_id": "tests.security.test_boundaries::test_read_scope_required[ingest]",
+      "status": "PASS",
+      "duration_seconds": "0.176",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-d0894d3da0",
+      "pytest_node_id": "tests.security.test_boundaries::test_read_scope_required[admin]",
+      "status": "PASS",
+      "duration_seconds": "0.078",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-936f6a93da",
+      "pytest_node_id": "tests.security.test_boundaries::test_service_identity_cannot_act_as_human[/documents]",
+      "status": "PASS",
+      "duration_seconds": "0.188",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-59b2b30d0a",
+      "pytest_node_id": "tests.security.test_boundaries::test_service_identity_cannot_act_as_human[/auth/me]",
+      "status": "PASS",
+      "duration_seconds": "0.220",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7b5d782f5a",
+      "pytest_node_id": "tests.security.test_boundaries::test_service_identity_cannot_act_as_human[/history]",
+      "status": "PASS",
+      "duration_seconds": "0.108",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-56a7e0d6f5",
+      "pytest_node_id": "tests.security.test_boundaries::test_service_identity_cannot_act_as_human[/dashboard]",
+      "status": "PASS",
+      "duration_seconds": "0.163",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5e1a23b218",
+      "pytest_node_id": "tests.security.test_boundaries::test_workload_cannot_spoof_human_actor_type",
+      "status": "PASS",
+      "duration_seconds": "0.141",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-1797668111",
+      "pytest_node_id": "tests.security.test_boundaries::test_human_scope_cannot_replace_workload_identity",
+      "status": "PASS",
+      "duration_seconds": "0.112",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-57e0b81a78",
+      "pytest_node_id": "tests.security.test_boundaries::test_workload_reindex_cannot_cross_tenant_boundary",
+      "status": "PASS",
+      "duration_seconds": "0.145",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-a6c612f5c9",
+      "pytest_node_id": "tests.security.test_boundaries::test_logout_revokes_current_token",
+      "status": "PASS",
+      "duration_seconds": "0.210",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-1155303f7f",
+      "pytest_node_id": "tests.security.test_boundaries::test_request_identity_spoofing_rejected[/search-payload0]",
+      "status": "PASS",
+      "duration_seconds": "0.088",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-d9cc5cf7d8",
+      "pytest_node_id": "tests.security.test_boundaries::test_request_identity_spoofing_rejected[/chat-payload1]",
+      "status": "PASS",
+      "duration_seconds": "0.125",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-3afffc172d",
+      "pytest_node_id": "tests.security.test_boundaries::test_request_identity_spoofing_rejected[/search-payload2]",
+      "status": "PASS",
+      "duration_seconds": "0.111",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-13b70430d9",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[cross-tenant-detail]",
+      "status": "PASS",
+      "duration_seconds": "0.130",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-9dbf68ab9e",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[cross-tenant-export]",
+      "status": "PASS",
+      "duration_seconds": "0.086",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6e2951f95a",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[cross-tenant-citation]",
+      "status": "PASS",
+      "duration_seconds": "0.140",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-933280329c",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[same-tenant-finance-detail]",
+      "status": "PASS",
+      "duration_seconds": "0.257",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f87365c18f",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[same-tenant-finance-export]",
+      "status": "PASS",
+      "duration_seconds": "0.131",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-240df024d5",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[same-tenant-finance-citation]",
+      "status": "PASS",
+      "duration_seconds": "0.068",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-b3b09f0b20",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[other-private-detail]",
+      "status": "PASS",
+      "duration_seconds": "0.102",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-06ab13f51f",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[other-private-export]",
+      "status": "PASS",
+      "duration_seconds": "0.134",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2f6aa04b4e",
+      "pytest_node_id": "tests.security.test_boundaries::test_object_reference_authorization[other-private-citation]",
+      "status": "PASS",
+      "duration_seconds": "0.149",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8799bb5d74",
+      "pytest_node_id": "tests.security.test_boundaries::test_cross_tenant_canary_never_returned[/documents]",
+      "status": "PASS",
+      "duration_seconds": "0.134",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-97146ca8a6",
+      "pytest_node_id": "tests.security.test_boundaries::test_cross_tenant_canary_never_returned[/search]",
+      "status": "PASS",
+      "duration_seconds": "0.116",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-318fe5d56a",
+      "pytest_node_id": "tests.security.test_boundaries::test_cross_tenant_canary_never_returned[/chat]",
+      "status": "PASS",
+      "duration_seconds": "0.199",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-d7bd21e4ca",
+      "pytest_node_id": "tests.security.test_boundaries::test_query_headers_cannot_change_effective_identity",
+      "status": "PASS",
+      "duration_seconds": "0.113",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-12fed54726",
+      "pytest_node_id": "tests.security.test_boundaries::test_signed_group_claim_does_not_override_current_policy",
+      "status": "PASS",
+      "duration_seconds": "0.113",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-dcce8718fd",
+      "pytest_node_id": "tests.security.test_boundaries::test_manipulated_title_and_ranking_do_not_grant_access",
+      "status": "PASS",
+      "duration_seconds": "0.080",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-87eabc52c8",
+      "pytest_node_id": "tests.security.test_boundaries::test_ordinary_user_cannot_mutate_access[share]",
+      "status": "PASS",
+      "duration_seconds": "0.099",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-ac905f207f",
+      "pytest_node_id": "tests.security.test_boundaries::test_ordinary_user_cannot_mutate_access[unshare]",
+      "status": "PASS",
+      "duration_seconds": "0.081",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6aaf05175d",
+      "pytest_node_id": "tests.security.test_boundaries::test_ordinary_user_cannot_mutate_access[delete]",
+      "status": "PASS",
+      "duration_seconds": "0.125",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-960e814ded",
+      "pytest_node_id": "tests.security.test_boundaries::test_ordinary_user_cannot_mutate_access[edit]",
+      "status": "PASS",
+      "duration_seconds": "0.119",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-bd6199c67f",
+      "pytest_node_id": "tests.security.test_boundaries::test_ordinary_user_cannot_mutate_access[reindex]",
+      "status": "PASS",
+      "duration_seconds": "0.170",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5a3b89b9a5",
+      "pytest_node_id": "tests.security.test_boundaries::test_ordinary_user_cannot_mutate_access[membership]",
+      "status": "PASS",
+      "duration_seconds": "0.137",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8cd4b02404",
+      "pytest_node_id": "tests.security.test_boundaries::test_tenant_admin_cannot_mutate_other_tenant",
+      "status": "PASS",
+      "duration_seconds": "0.087",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-25a248a933",
+      "pytest_node_id": "tests.security.test_boundaries::test_admin_scope_alone_does_not_make_user_administrator",
+      "status": "PASS",
+      "duration_seconds": "0.112",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-44970d4195",
+      "pytest_node_id": "tests.security.test_boundaries::test_group_membership_cannot_cross_tenant_boundary",
+      "status": "PASS",
+      "duration_seconds": "0.078",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-0390f0ad88",
+      "pytest_node_id": "tests.security.test_boundaries::test_cross_tenant_share_is_denied",
+      "status": "PASS",
+      "duration_seconds": "0.088",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-0c1357a078",
+      "pytest_node_id": "tests.security.test_boundaries::test_group_removal_uses_current_membership",
+      "status": "PASS",
+      "duration_seconds": "0.102",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2b961999a7",
+      "pytest_node_id": "tests.security.test_boundaries::test_reindex_does_not_restore_revoked_individual_access",
+      "status": "PASS",
+      "duration_seconds": "0.195",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-eb51136f03",
+      "pytest_node_id": "tests.security.test_boundaries::test_uncertain_source_state_never_confers_access[acl-unknown]",
+      "status": "PASS",
+      "duration_seconds": "0.081",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-cd92168555",
+      "pytest_node_id": "tests.security.test_boundaries::test_uncertain_source_state_never_confers_access[index-stale]",
+      "status": "PASS",
+      "duration_seconds": "0.116",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-d24346d3a5",
+      "pytest_node_id": "tests.security.test_boundaries::test_dependency_outage_is_sanitized_and_closed[authz]",
+      "status": "PASS",
+      "duration_seconds": "0.085",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-c4b4d56786",
+      "pytest_node_id": "tests.security.test_boundaries::test_dependency_outage_is_sanitized_and_closed[retrieval]",
+      "status": "PASS",
+      "duration_seconds": "0.126",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8cb50e1505",
+      "pytest_node_id": "tests.security.test_boundaries::test_dependency_outage_is_sanitized_and_closed[source]",
+      "status": "PASS",
+      "duration_seconds": "0.075",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6342831d13",
+      "pytest_node_id": "tests.security.test_boundaries::test_dependency_outage_is_sanitized_and_closed[model]",
+      "status": "PASS",
+      "duration_seconds": "0.090",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5f0a02d2ba",
+      "pytest_node_id": "tests.security.test_boundaries::test_indirect_injection_does_not_authorize_private_content",
+      "status": "PASS",
+      "duration_seconds": "0.080",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-173903edda",
+      "pytest_node_id": "tests.security.test_boundaries::test_exact_adversarial_source_is_retrieved_without_extra_privileges",
+      "status": "PASS",
+      "duration_seconds": "0.086",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-aa58b73b98",
+      "pytest_node_id": "tests.security.test_boundaries::test_no_user_input_reflection_as_grounded_answer",
+      "status": "PASS",
+      "duration_seconds": "0.132",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5279505360",
+      "pytest_node_id": "tests.security.test_boundaries::test_unknown_citation_is_denied",
+      "status": "PASS",
+      "duration_seconds": "0.110",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-82d4f40142",
+      "pytest_node_id": "tests.security.test_boundaries::test_stale_citation_is_denied",
+      "status": "PASS",
+      "duration_seconds": "0.094",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-fb42678124",
+      "pytest_node_id": "tests.security.test_boundaries::test_history_is_bound_to_requesting_user",
+      "status": "PASS",
+      "duration_seconds": "0.120",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f7f4b0bcc8",
+      "pytest_node_id": "tests.security.test_boundaries::test_deleted_document_not_returned[/documents]",
+      "status": "PASS",
+      "duration_seconds": "0.212",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-700c83f676",
+      "pytest_node_id": "tests.security.test_boundaries::test_deleted_document_not_returned[/search]",
+      "status": "PASS",
+      "duration_seconds": "0.106",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2334dfc0db",
+      "pytest_node_id": "tests.security.test_boundaries::test_deleted_document_not_returned[/chat]",
+      "status": "PASS",
+      "duration_seconds": "0.123",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8810ce26f2",
+      "pytest_node_id": "tests.security.test_boundaries::test_audit_records_are_content_free",
+      "status": "PASS",
+      "duration_seconds": "0.138",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-0f3ed861f1",
+      "pytest_node_id": "tests.security.test_boundaries::test_query_limits[payload0]",
+      "status": "PASS",
+      "duration_seconds": "0.074",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-419c4f6120",
+      "pytest_node_id": "tests.security.test_boundaries::test_query_limits[payload1]",
+      "status": "PASS",
+      "duration_seconds": "0.085",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5a8618a8eb",
+      "pytest_node_id": "tests.security.test_boundaries::test_oversized_chunked_request_is_bounded[/lab/login-user_id]",
+      "status": "PASS",
+      "duration_seconds": "0.110",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8223c2601f",
+      "pytest_node_id": "tests.security.test_boundaries::test_oversized_chunked_request_is_bounded[/chat-question]",
+      "status": "PASS",
+      "duration_seconds": "0.081",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-ad76fe5db9",
+      "pytest_node_id": "tests.security.test_vulnerable_fixture::test_vulnerable_fixture_disabled_without_explicit_opt_in",
+      "status": "PASS",
+      "duration_seconds": "0.000",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f2d54060d0",
+      "pytest_node_id": "tests.security.test_vulnerable_fixture::test_before_after_authoritative_tenant_gate",
+      "status": "PASS",
+      "duration_seconds": "0.109",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-608f678ea5",
+      "pytest_node_id": "tests.unit.test_adapters::test_offline_rsa_identity_and_process_logout",
+      "status": "PASS",
+      "duration_seconds": "0.056",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-3c2e806aff",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides0]",
+      "status": "PASS",
+      "duration_seconds": "0.081",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7e978e9251",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides1]",
+      "status": "PASS",
+      "duration_seconds": "0.046",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-702ace940f",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides2]",
+      "status": "PASS",
+      "duration_seconds": "0.049",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-d0010e0846",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides3]",
+      "status": "PASS",
+      "duration_seconds": "0.114",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f129cfd3c8",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides4]",
+      "status": "PASS",
+      "duration_seconds": "0.074",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-1405dc8f22",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides5]",
+      "status": "PASS",
+      "duration_seconds": "0.042",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-879dbf373b",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides6]",
+      "status": "PASS",
+      "duration_seconds": "0.052",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-1c0247e4ab",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides7]",
+      "status": "PASS",
+      "duration_seconds": "0.035",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-354e4373d3",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides8]",
+      "status": "PASS",
+      "duration_seconds": "0.066",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-2717bd89d1",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides9]",
+      "status": "PASS",
+      "duration_seconds": "0.100",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6851e2ccd9",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides10]",
+      "status": "PASS",
+      "duration_seconds": "0.045",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-4db9df60b7",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides11]",
+      "status": "PASS",
+      "duration_seconds": "0.040",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-a0e0b7961a",
+      "pytest_node_id": "tests.unit.test_adapters::test_invalid_signed_claims_are_rejected[overrides12]",
+      "status": "PASS",
+      "duration_seconds": "0.086",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-9e54d2e11d",
+      "pytest_node_id": "tests.unit.test_adapters::test_signature_from_another_offline_issuer_is_rejected",
+      "status": "PASS",
+      "duration_seconds": "0.156",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-b8ef66a229",
+      "pytest_node_id": "tests.unit.test_adapters::test_live_jwks_verifier_uses_configured_url_and_fresh_key",
+      "status": "PASS",
+      "duration_seconds": "0.105",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-8e1cdd3c43",
+      "pytest_node_id": "tests.unit.test_adapters::test_live_jwks_outage_or_unknown_key_denies[body0-200]",
+      "status": "PASS",
+      "duration_seconds": "0.086",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-fefbb92e57",
+      "pytest_node_id": "tests.unit.test_adapters::test_live_jwks_outage_or_unknown_key_denies[body1-200]",
+      "status": "PASS",
+      "duration_seconds": "0.099",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7765f2f7b3",
+      "pytest_node_id": "tests.unit.test_adapters::test_live_jwks_outage_or_unknown_key_denies[body2-503]",
+      "status": "PASS",
+      "duration_seconds": "0.080",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-67ef00eec4",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_requires_current_consistency_and_boolean_decision",
+      "status": "PASS",
+      "duration_seconds": "0.013",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-32e40c5309",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_reads_exact_document_direct_viewers_with_pagination",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-499998876d",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_read_errors_fail_closed[body0-200]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-1eaf19c097",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_read_errors_fail_closed[body1-200]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6a35a8a046",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_read_errors_fail_closed[body2-200]",
+      "status": "PASS",
+      "duration_seconds": "0.002",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7a2bae352c",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_read_errors_fail_closed[body3-200]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-552756293d",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_read_errors_fail_closed[body4-500]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-715c377852",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_read_repeated_continuation_fails_closed",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-75a4172439",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_unavailable_or_malformed_fails_closed[body0-200]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-6eb3968f70",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_unavailable_or_malformed_fails_closed[body1-200]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-bdb609ed6a",
+      "pytest_node_id": "tests.unit.test_adapters::test_openfga_unavailable_or_malformed_fails_closed[body2-500]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-634e719afe",
+      "pytest_node_id": "tests.unit.test_adapters::test_qdrant_tenant_scoped_filter_and_content_free_payload",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-331760725e",
+      "pytest_node_id": "tests.unit.test_adapters::test_qdrant_malformed_result_denies[None]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5629c768fe",
+      "pytest_node_id": "tests.unit.test_adapters::test_qdrant_malformed_result_denies[payload1]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-f49c160098",
+      "pytest_node_id": "tests.unit.test_adapters::test_qdrant_malformed_result_denies[payload2]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-85b30938aa",
+      "pytest_node_id": "tests.unit.test_adapters::test_qdrant_malformed_result_denies[payload3]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7af7781a72",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_bounded_fetch_uses_read_metadata_and_if_match",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-7d335fab86",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[../secret.txt]",
+      "status": "PASS",
+      "duration_seconds": "0.020",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5b5328d116",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[/secret.txt]",
+      "status": "PASS",
+      "duration_seconds": "0.020",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-39975e37d0",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[https://evil.invalid/a.txt]",
+      "status": "PASS",
+      "duration_seconds": "0.025",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-32e209604f",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[a%2fb.txt]",
+      "status": "PASS",
+      "duration_seconds": "0.024",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-9dbced81f2",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[a/../b.txt]",
+      "status": "PASS",
+      "duration_seconds": "0.031",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-9cab5dda06",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[a\\\\b.txt]",
+      "status": "PASS",
+      "duration_seconds": "0.020",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-843d61bcaa",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[a.txt?x]",
+      "status": "PASS",
+      "duration_seconds": "0.023",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-4b8fbb82cb",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_traversal_and_destinations_are_rejected[a.txt#x]",
+      "status": "PASS",
+      "duration_seconds": "0.020",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-cd3bbf1f28",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_unknown_permissions_size_and_type_denied[<?xml version=\"1.0\"?><d:multistatus xmlns:d=\"DAV:\" xmlns:oc=\"http://owncloud.org/ns\"><d:response><d:propstat><d:prop><d:getetag>&quot;v1&quot;</d:getetag><d:getcontentlength>12</d:getcontentlength><d:getcontenttype>text/plain</d:getcontenttype><oc:permissions>W</oc:permissions></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response></d:multistatus>-503]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-49251e24da",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_unknown_permissions_size_and_type_denied[<?xml version=\"1.0\"?><d:multistatus xmlns:d=\"DAV:\" xmlns:oc=\"http://owncloud.org/ns\"><d:response><d:propstat><d:prop><d:getetag>&quot;v1&quot;</d:getetag><d:getcontentlength>999999</d:getcontentlength><d:getcontenttype>text/plain</d:getcontenttype><oc:permissions>G</oc:permissions></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response></d:multistatus>-413]",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-9ed7a22da7",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_unknown_permissions_size_and_type_denied[<?xml version=\"1.0\"?><d:multistatus xmlns:d=\"DAV:\" xmlns:oc=\"http://owncloud.org/ns\"><d:response><d:propstat><d:prop><d:getetag>&quot;v1&quot;</d:getetag><d:getcontentlength>12</d:getcontentlength><d:getcontenttype>text/html</d:getcontenttype><oc:permissions>G</oc:permissions></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response></d:multistatus>-415]",
+      "status": "PASS",
+      "duration_seconds": "0.012",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-5a79d854b1",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_chunked_oversize_is_bounded",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-0577dc5d93",
+      "pytest_node_id": "tests.unit.test_adapters::test_nextcloud_xml_external_entities_denied_without_dereference",
+      "status": "PASS",
+      "duration_seconds": "0.001",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-31754a27da",
+      "pytest_node_id": "tests.unit.test_auth_revocation::test_api_logout_rejects_signature_padding_variants[=]",
+      "status": "PASS",
+      "duration_seconds": "0.221",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-ab8a66173c",
+      "pytest_node_id": "tests.unit.test_auth_revocation::test_api_logout_rejects_signature_padding_variants[==]",
+      "status": "PASS",
+      "duration_seconds": "0.098",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-4089b5da8a",
+      "pytest_node_id": "tests.unit.test_auth_revocation::test_api_logout_rejects_signature_padding_variants[===]",
+      "status": "PASS",
+      "duration_seconds": "0.124",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-a4a5691ba7",
+      "pytest_node_id": "tests.unit.test_auth_revocation::test_api_forged_same_jti_cannot_authorize_or_revoke_valid_identity",
+      "status": "PASS",
+      "duration_seconds": "0.211",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-b6a1b74a91",
+      "pytest_node_id": "tests.unit.test_auth_revocation::test_live_jwks_verified_identity_revocation_covers_equivalent_encodings",
+      "status": "PASS",
+      "duration_seconds": "0.043",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    },
+    {
+      "test_id": "TEST-4ca20e4952",
+      "pytest_node_id": "tests.unit.test_auth_revocation::test_expired_revocation_entries_are_pruned_without_affecting_active_identity",
+      "status": "PASS",
+      "duration_seconds": "0.072",
+      "evidence_id": "P091-20261114T202305519415Z",
+      "measurement": "deterministic offline API/unit test; live services are not implied"
+    }
+  ],
+  "source_sha256": {
+    "p091/__init__.py": "3b74913ee7ea16aea67c5e590edd51748682563d8a18b919e888a56cd8dccf05",
+    "p091/adapters.py": "d023104e0a035fd77c0f9353078813fd05b23530cb326e9b249ed01783a77456",
+    "p091/auth.py": "2e249974a46095ec1410bb2ac69cbb06725bc06dbfb54313d66a106b953c1df6",
+    "p091/config.py": "f809455f679d4cdce13a4b7d8c0219f2bdd2f90ab239fe549c22102e4eb9512f",
+    "p091/index_all.py": "7c506afc16319795efad7c99579da5e5f2c77cbd8fa363c2054c4e46980a3886",
+    "p091/main.py": "bc157e95b59a8df17b435d196b98da4c6bdd26787dee2644330106b9a4aa3c59",
+    "p091/migrations/001_initial.sql": "30c30cd389e3a3709da340e73180ef2a6d8807272d187bcf9526969e5d72d10d",
+    "p091/seed.py": "eb78a7426fa95b4d4dbd197f0502c175fdec2798a4bb96180ab4664764c3bbb9",
+    "p091/services.py": "67c7d7d11d445d4e934f39ab414eec1c45b8954e3fa80518bfd15e8ea06d8c28",
+    "p091/store.py": "2af5319b3053623a4f1f17f0d5a4b2c54f3563790e19b189386d9bebeb88790b",
+    "tests/integration/test_seed_restart.py": "360ac9e925d2ffb5315e37275672b76dce89d227ae9bb3d0e5d08fb05f4bcaa2",
+    "tests/integration/test_source_acl_state.py": "6216119027002f1c0fbe8c5855fcb5a44af0759fc4645114fc22e7a1e02d9c88",
+    "tests/integration/test_workflow.py": "4131e4d5f9cedec30dc0ed412df134784f490ff621f99b2d23f96403522eec77",
+    "tests/security/test_boundaries.py": "8a9a28377e39a61b3b2cb7fe4e9d93f064eb1505bb9910cbbc96817dcb650c80",
+    "tests/security/test_vulnerable_fixture.py": "9296c3febb349862d2689a85864c8e8d0b17cb8d046357945ba7eebfe29f9a78",
+    "tests/unit/test_adapters.py": "edb97941f592305fc23831f39ddbc143f087214132de72264d0f7041708858cb",
+    "tests/unit/test_auth_revocation.py": "30aadef4134845416a5f606283293b9fc83e1cf56ff97532e0846da33975bf5d",
+    "fixtures/synthetic-data/seed.json": "c19ff40b1401fb41fbb4fb55fc07fb34b5b49fbd9917c73591c74c924045ab2a",
+    "fixtures/vulnerable_demo.py": "d9a7f8ff89bb408b2c10f1dd73cbc5872399fc86f58ea3e638b4769d02d07ccf",
+    "apps/web/README.md": "f1018d02454ee3cffbb59579ecc85c69215d94942865fea918aef2b41bdd0d8f",
+    "apps/web/app.js": "3f11ce7672a5819aea8e69dd69ed2a3177232ce9fdfe031def90c1216075ebd3",
+    "apps/web/check_browser.py": "7742291a9c2c8f688c280e2ae5ed126088447c7b5d57f0d25bdd6f4eba7fbf2a",
+    "apps/web/check_keycloak.py": "9d8cdbaca3aefb7a105b3562a7fc8c2ab4a0de29b7317318f0a3e74cd437089d",
+    "apps/web/check_session_race.py": "067da691a7ec65545d02b91433c383115a6524530f10c15442669691cedaf4ce",
+    "apps/web/index.html": "d9d306c9565f0a4ef2ac51e1368f9e0c01c68dd1bdcb8510dd2e492a905868a3",
+    "apps/web/styles.css": "d59591808f4fbc087baff9c6da0eb196277d59b504ee36034784770325d40380",
+    "infra/README.md": "5b4baeccaa305aebe19cb9136d1f4921f0093555969c8ea487a2090b3ed6ef31",
+    "infra/component-versions.json": "38d6c5e0dba507d7d6b97dc9dfa106783bf9bbf65d7960eddcb7b2904c5a7f6a",
+    "infra/compose/compose.yaml": "2cf2cc42e545f7ed5874419576c0ee125a519d621f4bd672dbc6132d56958720",
+    "infra/keycloak/p091-realm.json": "bae2c21ee6288a65cd23a642756644c9660356309fab67b69618cfd806714947",
+    "infra/openfga/model.fga": "bd2d61bbab212f3f9043095608fe0b5347760567ae6f8d7201574494bf0cda3c",
+    "infra/openfga/model.json": "7101faf54f55857261ba60e3dbd50852c3d90e6d760a32518a926178e56ca14d",
+    "infra/openfga/probe-results.json": "b2b5ddc6c8eed1dbab092f1d6b6f9aac83d1f9af9e30b649e2c7d5533632cdcc",
+    "infra/postgres/init-databases.sh": "2846900a4490f7fe5b9ae7af5b5c37c86a3c2d0e29cd652d48521a341d13bb6a",
+    "infra/prepare_probe_env.py": "0e2ec13730ce8e907d618911f9d409c65916888997b7d7d487364b012790e5fb",
+    "infra/probe_keycloak.py": "33434b152c5b178735a5c9542336cf2aac6473c449869a1e0c9af22eac2fe296",
+    "infra/probe_qdrant.py": "4cc78928d988a884f6eaa20cfcb5cddfe7b9a355d16cdb637966dd34938bc36f",
+    "infra/qdrant/healthcheck.sh": "183187fcdee4295ba0e019ceb36facd727fed6f425128498cb391b20f5e7ca42",
+    "scripts/bootstrap_live.py": "4884621d3292245a1e622b5ad1af8897534df620bb521d22bd43337293d9929b",
+    "scripts/build_traceability.py": "e65eedc9ba06f545695325964c86d9bafe5ba004dfb2c08e9b2af1077b6355a4",
+    "scripts/enable_nextcloud.py": "9a31e3b7d858c217c2a91dab8bf198b26c51da83b6ac38b30c18c2927c9ab4ab",
+    "scripts/reset_ids.py": "d94408b48c0d24f8114422c1f28e96de14644750fde27464ed8ccefe75537733",
+    "scripts/reset_offline.py": "8686ad28783e124304b9c838ef60bc7945be998cfcb9cf575270f4c40f132085",
+    "scripts/run_evidence.py": "540dcc0ee1e852c661bec200869c3281844da4f9e35fb5b8955e02f9b5fba07d",
+    "scripts/run_promptfoo.py": "11f9bb75dd5355d90a9719087b1328908b7f528786fcbb38cefd1bf7031e0e95",
+    "scripts/seed_nextcloud.py": "db7ebe7b413851bf80caf24ee7155cb0afbe5e978a8caf9e54c06d18cd2fcfd5",
+    "requirements.lock": "636fb0090f18bfa7dcd5a07e99b315111f1c4320e6a59fc1b4164f822dd03d6e",
+    "Makefile": "80a00bd39647bef4f6d2737c19f05dc1d38e2d7112ac56b711acf6e97d9f086b",
+    "pyproject.toml": "453e4e9851e9a826304193beb9e4f1c1067327dc279a02150fadef213368b01c",
+    "Dockerfile": "5c6e4e357b68512df63da4f652e4911d61f3c4aba174478b2266feb5f77bb85d"
+  },
+  "artifacts_sha256": {
+    "pytest.log": "117ed21ba6c70eca7a6002cd3e59e0365c378e98b9306ac38ca58bef89485841",
+    "junit.xml": "4477b2396a01aa8492c7d1aec7d33ed58abff07b4d4156b61eea3272d7cf69d5"
+  },
+  "interpretation": "PASS means the defined assertion held in this run; it does not mean a vulnerability was discovered or universal security was proven."
+}

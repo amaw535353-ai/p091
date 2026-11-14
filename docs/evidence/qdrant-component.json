@@ -1,0 +1,59 @@
+{
+  "executed_at": "2026-11-14T20:25:59.765000+00:00",
+  "command": ".venv/bin/python infra/probe_qdrant.py",
+  "component": "Qdrant1.20.1",
+  "configuration": "Real standalone Docker Qdrant with generated local API key; synthetic ephemeral corpus",
+  "boundary": "Actual application Qdrant adapter -> real local Qdrant REST API",
+  "limitation": "Not full Compose/assistant or source-backed authorization integration; deterministic hash embeddings only",
+  "results": [
+    {
+      "test_id": "LIVE-QD-NAMESPACE-NORTHWIND",
+      "status": "PASS",
+      "observed_candidates": [
+        "00000000-0000-4000-8000-000000000091"
+      ]
+    },
+    {
+      "test_id": "LIVE-QD-NAMESPACE-CONTOSO",
+      "status": "PASS",
+      "observed_candidates": [
+        "00000000-0000-4000-8000-000000000092"
+      ]
+    },
+    {
+      "test_id": "LIVE-QD-PAYLOAD-MINIMIZATION",
+      "status": "PASS",
+      "observed_payload_keys": [
+        [
+          "doc_id",
+          "tenant",
+          "version"
+        ]
+      ]
+    },
+    {
+      "test_id": "LIVE-QD-FILTER-POISONED-PAYLOAD",
+      "status": "PASS",
+      "observed_candidates": [
+        "00000000-0000-4000-8000-000000000091"
+      ],
+      "limitation": "A forged same-tenant candidate still requires canonical app ACL rechecks; this is only the vector filter test"
+    },
+    {
+      "test_id": "LIVE-QD-INVALID-API-KEY",
+      "expected_http_status": 503,
+      "observed_http_status": 503,
+      "status": "PASS"
+    },
+    {
+      "test_id": "LIVE-QD-DELETE",
+      "status": "PASS",
+      "observed_candidates": []
+    }
+  ],
+  "container_health_probe": {
+    "command": "docker exec p091-qdrant-probe bash /healthcheck.sh",
+    "observed_exit_code": 0,
+    "additional_counted_test": false
+  }
+}

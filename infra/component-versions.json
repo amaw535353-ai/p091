@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-11-14T20:18:51.246611+00:00",
+  "images": [
+    {
+      "image": "python:3.12.16-slim-bookworm",
+      "id": "sha256:313cf8f190a1abab00472c1f0c950c10486c22114bcd8aef2a8198fb587a6d18",
+      "repo_digests": [
+        "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df"
+      ],
+      "size_bytes": 123649596
+    },
+    {
+      "image": "quay.io/keycloak/keycloak:26.8.2",
+      "id": "sha256:1ac63e04fe5d895e189df88efd4a097609b54b602ddbf1866a8ef21ef3d097af",
+      "repo_digests": [
+        "quay.io/keycloak/keycloak@sha256:c68e286cacd87b942ac1939a0a1481461109d6acd3a57dc496969a319a76bbf0"
+      ],
+      "size_bytes": 473316468
+    },
+    {
+      "image": "openfga/openfga:v1.22.1",
+      "id": "sha256:f6857f0216b32f6128629a0046eb86369d94dd800a0a6499488efbb3361e4ca6",
+      "repo_digests": [
+        "openfga/openfga@sha256:b852071314f1fda1194d341a6ebac0a4f619b3cd87a6626d2ccc7048af4ec671"
+      ],
+      "size_bytes": 82302567
+    },
+    {
+      "image": "qdrant/qdrant:v1.20.1",
+      "id": "sha256:1d9aa857fe7f737a61a695886ddacbb5beb02f8514ea324afe6f066a2ac1db0e",
+      "repo_digests": [
+        "qdrant/qdrant@sha256:d18c8e5061be3eaea2f53fbee1f0bf0382dc59cbb9b7112e41ffcc937ec14220"
+      ],
+      "size_bytes": 197049876
+    }
+  ]
+}

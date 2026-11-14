@@ -1,0 +1,20 @@
+{
+  "executed_at": "2026-11-14T20:10:32.055900+00:00",
+  "component": "OpenFGA v1.22.1",
+  "environment": "isolated real Docker container; in-memory datastore, synthetic tuples only",
+  "limits": "Not full Compose or PostgreSQL integration; no Keycloak/Qdrant/Nextcloud assertions",
+  "results": [
+    {
+      "test_id": "INFRA-FGA-nw-employee",
+      "expected": true,
+      "observed": true,
+      "status": "PASS"
+    },
+    {
+      "test_id": "INFRA-FGA-co-employee",
+      "expected": false,
+      "observed": false,
+      "status": "PASS"
+    }
+  ]
+}

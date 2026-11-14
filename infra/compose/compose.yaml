@@ -1,0 +1,195 @@
+name: p091
+
+x-core: &core
+  profiles: [core, extended]
+  restart: unless-stopped
+
+services:
+  postgres:
+    <<: *core
+    image: postgres:17.12-bookworm
+    environment:
+      POSTGRES_USER: p091_root
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run make prepare first}
+      APP_DATABASE_PASSWORD: ${APP_DATABASE_PASSWORD:?}
+      FGA_DATABASE_PASSWORD: ${FGA_DATABASE_PASSWORD:?}
+      KEYCLOAK_DATABASE_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD:?}
+      NEXTCLOUD_DATABASE_PASSWORD: ${NEXTCLOUD_DATABASE_PASSWORD:?}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../postgres/init-databases.sh:/docker-entrypoint-initdb.d/10-p091.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U p091_root -d postgres]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [lab]
+
+  keycloak:
+    <<: *core
+    image: quay.io/keycloak/keycloak:26.8.2
+    command: [start-dev, --import-realm, --http-enabled=true, --hostname=http://localhost:8081]
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: ${KEYCLOAK_DATABASE_PASSWORD:?}
+      KC_BOOTSTRAP_ADMIN_USERNAME: lab-admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:?}
+      KC_HEALTH_ENABLED: "true"
+      KC_HTTP_MANAGEMENT_SCHEME: http
+      LAB_USER_PASSWORD: ${LAB_USER_PASSWORD:?}
+      INDEXER_CLIENT_SECRET: ${INDEXER_CLIENT_SECRET:?}
+      CONTOSO_INDEXER_CLIENT_SECRET: ${CONTOSO_INDEXER_CLIENT_SECRET:?}
+    ports: ["127.0.0.1:8081:8080"]
+    volumes:
+      - ../keycloak/p091-realm.json:/opt/keycloak/data/import/p091-realm.json:ro
+    depends_on:
+      postgres: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, bash, -ec, "{ printf 'HEAD /health/ready HTTP/1.0\\r\\n\\r\\n' >&0; grep 'HTTP/1.0 200'; } 0<>/dev/tcp/localhost/9000"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+      start_period: 30s
+    networks: [lab]
+
+  fga-migrate:
+    profiles: [core, extended]
+    image: openfga/openfga:v1.22.1
+    command: [migrate]
+    environment:
+      OPENFGA_DATASTORE_ENGINE: postgres
+      OPENFGA_DATASTORE_URI: postgres://openfga:${FGA_DATABASE_PASSWORD:?}@postgres:5432/openfga?sslmode=disable
+    depends_on:
+      postgres: {condition: service_healthy}
+    networks: [lab]
+    restart: "no"
+
+  openfga:
+    <<: *core
+    image: openfga/openfga:v1.22.1
+    command: [run]
+    environment:
+      OPENFGA_DATASTORE_ENGINE: postgres
+      OPENFGA_DATASTORE_URI: postgres://openfga:${FGA_DATABASE_PASSWORD:?}@postgres:5432/openfga?sslmode=disable
+      OPENFGA_AUTHN_METHOD: preshared
+      OPENFGA_AUTHN_PRESHARED_KEYS: ${FGA_TOKEN:?}
+      OPENFGA_PLAYGROUND_ENABLED: "false"
+      OPENFGA_LOG_FORMAT: json
+      OPENFGA_LOG_LEVEL: warn
+    ports: ["127.0.0.1:8082:8080"]
+    depends_on:
+      fga-migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, /usr/local/bin/grpc_health_probe, -addr=:8081]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [lab]
+
+  qdrant:
+    <<: *core
+    image: qdrant/qdrant:v1.20.1
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_KEY:?}
+      QDRANT__TELEMETRY_DISABLED: "true"
+    ports: ["127.0.0.1:6333:6333"]
+    volumes:
+      - qdrant-data:/qdrant/storage
+      - ../qdrant/healthcheck.sh:/healthcheck.sh:ro
+    healthcheck:
+      test: [CMD, bash, /healthcheck.sh]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    # The external companion independently verifies the same readiness endpoint.
+    networks: [lab]
+
+  vector-ready:
+    profiles: [core, extended]
+    image: python:3.12.16-slim-bookworm
+    entrypoint: [python, -c]
+    command:
+      - |
+        import os,time,urllib.request
+        for attempt in range(90):
+            try:
+                request=urllib.request.Request('http://qdrant:6333/readyz',headers={'api-key':os.environ['QDRANT_KEY']})
+                with urllib.request.urlopen(request,timeout=2) as response:
+                    if response.status == 200: break
+            except Exception: time.sleep(1)
+        else: raise SystemExit('Qdrant did not become ready')
+    environment: {QDRANT_KEY: "${QDRANT_KEY:?}"}
+    depends_on: [qdrant]
+    networks: [lab]
+    restart: "no"
+
+  api:
+    <<: *core
+    build: {context: ../.., dockerfile: Dockerfile}
+    environment:
+      LAB_MODE: live
+      DATABASE_URL: postgresql://p091:${APP_DATABASE_PASSWORD:?}@postgres:5432/p091
+      OIDC_ISSUER: http://localhost:8081/realms/p091
+      OIDC_AUDIENCE: p091-api
+      OIDC_JWKS_URL: http://keycloak:8080/realms/p091/protocol/openid-connect/certs
+      OPENFGA_URL: http://openfga:8080
+      FGA_STORE_ID: ${FGA_STORE_ID:-}
+      FGA_MODEL_ID: ${FGA_MODEL_ID:-}
+      FGA_TOKEN: ${FGA_TOKEN:?}
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_KEY: ${QDRANT_KEY:?}
+      NEXTCLOUD_URL: http://nextcloud:80
+      NEXTCLOUD_USER: connector
+      NEXTCLOUD_PASSWORD: ${NEXTCLOUD_CONNECTOR_PASSWORD:?}
+      NEXTCLOUD_ENABLED: ${NEXTCLOUD_ENABLED:-false}
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      keycloak: {condition: service_healthy}
+      openfga: {condition: service_healthy}
+      vector-ready: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready',timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [lab]
+
+  nextcloud:
+    profiles: [extended]
+    image: nextcloud:33.0.11-apache
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: ${NEXTCLOUD_DATABASE_PASSWORD:?}
+      NEXTCLOUD_ADMIN_USER: lab-admin
+      NEXTCLOUD_ADMIN_PASSWORD: ${NEXTCLOUD_ADMIN_PASSWORD:?}
+      NEXTCLOUD_TRUSTED_DOMAINS: localhost 127.0.0.1 nextcloud
+      OVERWRITECLIURL: http://localhost:8083
+    ports: ["127.0.0.1:8083:80"]
+    volumes: [nextcloud-data:/var/www/html]
+    depends_on:
+      postgres: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, php, -r, "exit(json_decode(file_get_contents('http://localhost/status.php'), true)['installed'] ? 0 : 1);"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 45s
+    networks: [lab]
+    restart: unless-stopped
+
+networks:
+  lab: {}
+volumes:
+  postgres-data: {}
+  qdrant-data: {}
+  nextcloud-data: {}

@@ -1,0 +1,9 @@
+{
+  "name": "p091-local-security-evaluations",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Synthetic, deterministic local RAG authorization evaluation",
+  "engines": { "node": ">=22.22.0" },
+  "scripts": { "eval": "promptfoo eval --config promptfooconfig.yaml --no-cache --no-table" },
+  "devDependencies": { "promptfoo": "0.125.1" }
+}

@@ -1,0 +1,64 @@
+{
+  "executed_at": "2026-11-14T20:23:01.284231+00:00",
+  "command": ".venv/bin/python infra/probe_keycloak.py",
+  "component": "Keycloak26.8.2",
+  "configuration": "Real standalone Docker Keycloak with H2 dev-file, committed realm, local generated credentials",
+  "boundary": "Real Keycloak grant -> signed JWT -> actual application Authenticator + live JWKS",
+  "limitation": "Not PostgreSQL-backed Compose or full assistant end-to-end integration; human PKCE evidence is separate",
+  "results": [
+    {
+      "test_id": "LIVE-KC-SERVICE-NORTHWIND",
+      "status": "PASS",
+      "observed": {
+        "sub": "nw-indexer",
+        "tenant": "northwind",
+        "actor_type": "service",
+        "scopes": [
+          "ingest"
+        ]
+      }
+    },
+    {
+      "test_id": "LIVE-KC-SERVICE-CONTOSO",
+      "status": "PASS",
+      "observed": {
+        "sub": "co-indexer",
+        "tenant": "contoso",
+        "actor_type": "service",
+        "scopes": [
+          "ingest"
+        ]
+      }
+    },
+    {
+      "test_id": "LIVE-KC-WRONG-ISSUER",
+      "expected_http_status": 401,
+      "observed_http_status": 401,
+      "status": "PASS"
+    },
+    {
+      "test_id": "LIVE-KC-WRONG-AUDIENCE",
+      "expected_http_status": 401,
+      "observed_http_status": 401,
+      "status": "PASS"
+    },
+    {
+      "test_id": "LIVE-KC-INVALID-SIGNATURE",
+      "expected_http_status": 401,
+      "observed_http_status": 401,
+      "status": "PASS"
+    },
+    {
+      "test_id": "LIVE-KC-APP-LOGOUT",
+      "expected_http_status": 401,
+      "observed_http_status": 401,
+      "status": "PASS",
+      "limitation": "Process-local application revocation only; not external Keycloak session revocation"
+    },
+    {
+      "test_id": "LIVE-KC-PASSWORD-GRANT-DISABLED",
+      "observed_http_status": 400,
+      "status": "PASS"
+    }
+  ]
+}

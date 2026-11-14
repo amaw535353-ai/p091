@@ -1,0 +1,32 @@
+{
+  "engagement": "P-091",
+  "finding": "F-002",
+  "evidence_id": "P091-UI-RACE-BEFORE",
+  "observed_before_utc": "2026-11-14T20:16:15+00:00",
+  "timestamp_note": "Reviewer read clock immediately after reproduction; this is an approximate completion timestamp.",
+  "executor": "assessment_docs/browser_review independent reviewer agent",
+  "working_directory": "/workspace/work/p091",
+  "command": "python - <<'PY' (Playwright held /chat response across logout and second-tenant sign-in)",
+  "app_js_before_sha256": "a01de1779bf7654823270b10e264b39a72be27d9830c3e7c7f6816a971147d75",
+  "mode": "offline synthetic API, temporary SQLite, ephemeral loopback port",
+  "browser": "/usr/bin/chromium; Playwright headless actual browser",
+  "exit_code": 0,
+  "elapsed_seconds": 9.963685338,
+  "observed": {
+    "reproduced": true,
+    "new_identity_contoso": true,
+    "northwind_marker_visible": true,
+    "answer_visible": true
+  },
+  "interpretation": "Confirmed browser display/session-isolation defect. The response had been authorized for the previous identity; no server authorization bypass was demonstrated.",
+  "reproduction": [
+    "Start the pre-fix offline API and open the web UI in Chromium.",
+    "Sign in as nw-employee and wait for Session ready.",
+    "Use Playwright page.route('**/chat', hold), where hold saves route.fetch() and the unfulfilled route.",
+    "Ask HR handbook and wait until the authorized response is held.",
+    "Sign out, sign in as co-employee, and wait for Session ready and contoso identity.",
+    "Fulfill the saved route with the previously fetched response.",
+    "Observe NW_HR_CANARY in the visible answer while the active identity is Contoso."
+  ],
+  "secrets_retained": false
+}

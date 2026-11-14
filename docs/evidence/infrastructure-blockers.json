@@ -1,0 +1,30 @@
+{
+  "executed_at": "2026-11-14T20:18:51.247030+00:00",
+  "environment": {
+    "filesystem_capacity": "7.9GiB",
+    "docker_storage_driver": "vfs",
+    "docker_version": "29.9.2",
+    "compose_version": "v2.40.3"
+  },
+  "attempts": [
+    {
+      "command": "docker compose --env-file .env -f infra/compose/compose.yaml --profile core up -d postgres keycloak openfga qdrant vector-ready",
+      "exit_code": 1,
+      "observed": "PostgreSQL image layer extraction failed: no space left on device",
+      "status": "INCONCLUSIVE"
+    },
+    {
+      "command": "docker compose --env-file .env -f infra/compose/compose.yaml --profile extended pull --quiet nextcloud",
+      "exit_code": 1,
+      "observed": "Nextcloud image layer extraction failed: no space left on device",
+      "status": "INCONCLUSIVE"
+    },
+    {
+      "command": "docker pull --quiet postgres:17.12-alpine",
+      "exit_code": 1,
+      "observed": "Smaller alternative also failed extracting LLVM21 directory: no space left on device; Compose remains on original bookworm pin",
+      "status": "INCONCLUSIVE"
+    }
+  ],
+  "limitation": "No full core PostgreSQL-backed or Nextcloud-backed end-to-end result is established; observed standalone component tests are separate. No broad Docker prune or unrelated files removed."
+}

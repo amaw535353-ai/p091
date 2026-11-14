@@ -1,0 +1,77 @@
+{
+  "engagement": "P-091",
+  "finding": "F-002",
+  "evidence_id": "P091-UI-RACE-20261114T202414Z",
+  "started_utc": "2026-11-14T20:24:14.829483+00:00",
+  "finished_utc": "2026-11-14T20:24:32.399166+00:00",
+  "command": "python apps/web/check_session_race.py",
+  "mode": "offline synthetic API + actual Chromium intercepted responses",
+  "browser_version": "156.0.8078.79",
+  "app_js_sha256": "3f11ce7672a5819aea8e69dd69ed2a3177232ce9fdfe031def90c1216075ebd3",
+  "denominator": 10,
+  "PASS": 10,
+  "FAIL": 0,
+  "checks": [
+    {
+      "test_id": "UI-RACE-CHAT",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-CHAT-ERROR",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-CHAT-401",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-SEARCH",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-DOCUMENTS",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-PREVIEW",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-CITATION",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-HISTORY-LIST",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-HISTORY-DETAIL",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    },
+    {
+      "test_id": "UI-RACE-DASHBOARD",
+      "status": "PASS",
+      "old_response_rendered": false,
+      "new_tenant_utility": true
+    }
+  ],
+  "scope": "Old authenticated responses and an error held across logout/new tenant login; no server authorization bypass asserted."
+}

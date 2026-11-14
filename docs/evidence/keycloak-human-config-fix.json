@@ -1,0 +1,42 @@
+{
+  "engagement": "P-091",
+  "evidence_id": "P091-KC-SUBJECT-CONFIG-FIX",
+  "recorded_at": "2026-11-14T20:26:56.695000+00:00",
+  "classification": "Confirmed integration configuration defect; availability impact, no observed unauthorized content disclosure",
+  "before": {
+    "evidence": "docs/evidence/live/keycloak-human-before.json",
+    "observed": {
+      "browser_login": "completed",
+      "authorization_code_exchange": "HTTP 200",
+      "app_jwt_verifier": "HTTP 401; Invalid credentials",
+      "underlying_verified_failure": "MissingRequiredClaimError: Token is missing the sub claim"
+    },
+    "historical_status": "FAIL"
+  },
+  "root_cause": "Custom p091-web default read scope omitted Keycloak basic scope subject mapper; human access token lacked required sub. Service tokens always included sub.",
+  "fix": {
+    "file": "scripts/bootstrap_live.py common_mappers and infra/keycloak/p091-realm.json",
+    "protocol_mapper": "oidc-sub-mapper",
+    "config": {
+      "access.token.claim": "true",
+      "introspection.token.claim": "true"
+    },
+    "runtime_retest_setup": "Added identical explicit subject mapper to the3 standalone local probe clients via authenticated admin API; real browser callback listener used for PKCE/CORS retest; no token or credential retained",
+    "realm_sha256": "bae2c21ee6288a65cd23a642756644c9660356309fab67b69618cfd806714947"
+  },
+  "official_reference": "https://github.com/keycloak/keycloak/blob/26.8.2/services/src/main/java/org/keycloak/protocol/oidc/mappers/SubMapper.java",
+  "latest_retest": {
+    "human_evidence": "docs/evidence/live/keycloak-human.json",
+    "human_PASS": 8,
+    "human_denominator": 8,
+    "service_evidence": "docs/evidence/keycloak-component.json",
+    "service_PASS": 7,
+    "service_denominator": 7,
+    "human_browser_origin_cors_verified": true,
+    "human_evidence_id": "P091-KEYCLOAK-HUMAN-20261114T202556Z"
+  },
+  "status": "PASS",
+  "summary_not_additional_test": true,
+  "limitation": "Derived before/fix/retest record; do not add its counts to underlying evidence denominators. Standalone H2 Keycloak only; full PostgreSQL-backed app not validated.",
+  "secrets_or_tokens_retained": false
+}
